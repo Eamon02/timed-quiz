@@ -1,5 +1,5 @@
 //Creating an arry and passing the number, questions, options, and answers
-let question = [
+let questions = [
     {
         numb: 1,
         question: "How old is the universe?",
@@ -14,7 +14,7 @@ let question = [
     {
         numb: 2,
         question: "What is the Name of our Galaxy?",
-        answer: "",
+        answer: "Milky Way",
         options: [
         "Andromeda",
         "C-137",
@@ -25,7 +25,7 @@ let question = [
     {
         numb: 3,
         question: "What is at the Center of the Galaxy?",
-        answer: "",
+        answer: "A Blackhole",
         options: [
         "A Star",
         "A Blackhole",
@@ -36,7 +36,7 @@ let question = [
     {
         numb: 4,
         question: "What causes Green Fireballs?",
-        answer: "",
+        answer: "We don't Know",
         options: [
         "The Soviets",
         "Aliens",
@@ -47,7 +47,7 @@ let question = [
     {
         numb: 5,
         question: "In 1833, the Leonid Meteor Shower had a frequency of:",
-        answer: "",
+        answer: "100,000",
         options: [
         "100",
         "1,000",
