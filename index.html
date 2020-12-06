@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Awesome Quiz App | CodingNepal</title> -->
     <link rel="stylesheet" href="style.css">
+
     <!-- FontAweome CDN Link for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
@@ -36,9 +34,10 @@
         <header>
             <div class="title">Timed Quiz</div>
             <div class="timer">
-                <div class="time_tex">Time Left:</div>
-                <div class="timer_sec">30</div>
+                <div class="time_text">Time Left</div>
+                <div class="timer_sec">15</div>
             </div>
+            <div class="time_line"></div>
         </header>
         <section>
             <div class="que_text">
@@ -70,7 +69,7 @@
             <div class="total_que">
                 <!-- <span><p>2</p>of<p>5</p>Questions</span> -->
             </div>  
-                <button class="next_btn">Next Que</button>
+                <button class="next_btn">Next <i class="fas fa-arrow-alt-circle-right"></i></button>
         </footer>
     </div>
 
@@ -81,8 +80,22 @@
         </div>
         <div class="complete_text">You've Completed the Quiz!</div>
         <div class="score_text">
-            <span>Your Score Was: <p>1</p>out of<p>5</p></span> 
+            <!-- <span>Your Score Was: <p>1</p>out of<p>5</p></span>  -->
         </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>       
+         </div>            
+    </div>
+
+    <div class="highscore_box">
+        <div class="icon">
+            <i class="fas fa-trash-restore-alt"></i>
+        </div>
+        <div class="highscore_text">High Scores</div>
+        <form action="" class="score_board">
+            
+        </form>
         <div class="buttons">
             <button class="restart">Replay Quiz</button>
             <button class="quit">Quit Quiz</button>       

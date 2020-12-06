@@ -12,7 +12,7 @@ body{
     background: #007bff;
 }
 
-.start_btn, 
+/* .start_btn,  */
 .info_box,
 .quiz_box,
 .result_box{
@@ -22,12 +22,13 @@ body{
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 /* SHOWS WHEN button clicked */
 .info_box.activeInfo,
-.quiz_box.activeQuiz{
+.quiz_box.activeQuiz,
+.result_box.activeResult{
     width: 540px;
     background: #fff;
     border-radius: 5px;
@@ -202,6 +203,15 @@ body{
     user-select: none;
 }
 
+.quiz_box header .time_line{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: relative;
+    height: 3px;
+    background: #007bff;
+}
+
 section{
     padding: 25px 30px 20px 30px;
     background: #fff;
@@ -329,6 +339,7 @@ section .option_list .option:last-child{
 }
 
 footer .next_btn{
+    display: none;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -347,6 +358,7 @@ footer .next_btn:hover{
     color: darkblue;
 }
 
+/* Result Page */
 .result_box{
     background: #fff;
     width: 450px;
@@ -357,7 +369,7 @@ footer .next_btn:hover{
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url(https://media1.giphy.com/media/JpGT5gK9PUep3FpM2r/200w.webp?cid=ecf05e479xpkj7iexv2bsi01q3pt8dg7st8gnxjteop6efra&rid=200w.webp);
+    background-image: url(https://media3.giphy.com/media/khHKk128ynHkfscTtH/giphy.webp?cid=ecf05e479xpkj7iexv2bsi01q3pt8dg7st8gnxjteop6efra&rid=giphy.webp);
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(1);
@@ -398,6 +410,74 @@ footer .next_btn:hover{
 }
 
 .result_box .buttons button{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* highscore_box  */
+.highscore_box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  background: white;
+  width: 450px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(https://media3.giphy.com/media/khHKk128ynHkfscTtH/giphy.webp?cid=ecf05e479xpkj7iexv2bsi01q3pt8dg7st8gnxjteop6efra&rid=giphy.webp);
+}
+
+.highscore_box .icon{
+    font-size: 100px;
+    margin-bottom: 10px;
+    background-image: url(https://media2.giphy.com/media/3ov9k3oFVQqXTI1pFm/200w.webp?cid=ecf05e47vb766iwvoc9jy5elgugv08mfoagre6eo0b5xm2m0&rid=200w.webp); 
+    background-repeat: repeat; 
+    background-size: contain;
+    background-position-x: center;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+
+}
+
+.highscore_box .complete_text{
+    margin-top: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.highscore_box .score_text span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.highscore_text{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.highscore_box .buttons{
+    display: flex;
+    margin: 20px 0;
+
+}
+
+.highscore_box .buttons button{
     margin: 0 10px;
     height: 45px;
     padding: 0 20px;
