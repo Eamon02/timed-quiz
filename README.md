@@ -13,16 +13,16 @@ ___
 ___
 ## Sources Used
 
-![w3schools.com](https://www.w3schools.com/css/css_outline.asp)
+[w3schools.com](https://www.w3schools.com/css/css_outline.asp)
 
-![Stack Overflow](https://stackoverflow.com/questions/1093955/make-the-image-go-behind-the-text-and-keep-it-in-center-using-css)
+[Stack Overflow](https://stackoverflow.com/questions/1093955/make-the-image-go-behind-the-text-and-keep-it-in-center-using-css)
 
-![Font Awesome](https://fontawesome.com/icons?d=gallery)
+[Font Awesome](https://fontawesome.com/icons?d=gallery)
 
-![giphy.com](https://giphy.com/search/texture)
+[giphy.com](https://giphy.com/search/texture)
 
 Youtube Tutorials:
-![CodingNepal](https://www.youtube.com/watch?v=WUBhpSRS_fk)
+[CodingNepal](https://www.youtube.com/watch?v=WUBhpSRS_fk)
 
 [Brian Design](https://www.youtube.com/watch?v=WUBhpSRS_fk)
 
