@@ -9,13 +9,16 @@ const timeCount = document.querySelector(".timer .timer_sec");
 const time_line = document.querySelector("header .time_line");
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box"); 
-const restart_quiz = result_box.querySelector(".buttons .restart"); 
-const quit_quiz = result_box.querySelector(".buttons .quit");
+const restart_quiz = result_box.querySelector(".restart"); 
+const quit_quiz = result_box.querySelector(".quit");
+const highscore_btn = document.querySelector(".highscore_btn");
+const highscore_box = document.querySelector(".highscore_box")
 
 //Start Button click
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo"); //shows info box
 }
+
 
 //Exit Button Click
 exit_btn.onclick = ()=>{
@@ -28,7 +31,7 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); //shows quiz box
     showQuestions(0);
     queCounter(1);
-    startTimer(15);
+    startTimer(30);
     startTimerLine(0);
 }
 
@@ -36,12 +39,13 @@ let que_count = 0;
 let que_numb = 1;
 let counter;
 let counterLine;
-let timeValue = 15;
+let timeValue = 30;
 let widthValue = 0;
 let userScore = 0;
 
 //if next button clicked
 next_btn.onclick = ()=>{
+
     if(que_count < questions.length - 1){
         que_count++;
         que_numb++;
@@ -56,8 +60,11 @@ next_btn.onclick = ()=>{
         //logs quiz complete
         console.log("Questions Completed")
         showResultBox();
+        localStorage.setItem('mostRecentScore', userScore)
     }
 }
+
+
 
 
 //Finish Quiz show result box function
@@ -67,15 +74,17 @@ function showResultBox(){
     result_box.classList.add("activeResult"); //shows result box
     const scoreText = result_box.querySelector(".score_text"); //grabs result text element
 
-if(userScore > 5){
-    let score = '<span>Your Score Was: <p>'+ userScore +'</p>out of<p>'+ questions.length +'</p></span>';
+if(userScore < 5){
+    let score = '<span>Your Score Was: <p id="finalScore">'+ userScore +'</p>out of<p>'+ questions.length +'</p></span>';
     scoreText.innerHTML = score;
     }
     else{
-    let score = '<h1>YOURE A GENIOUS!</h1>'
+    let score = '<h1>YOURE A GENIUS!</h1>'
     scoreText.innerHTML = score;
     }
 }
+
+
 
 //gettign questions and options from array
 function showQuestions(index){
@@ -98,7 +107,7 @@ function showQuestions(index){
 let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
-
+//When answer selected
 function optionSelected(answer){
     //changes display of next button
     next_btn.style.display = "block";
@@ -154,6 +163,8 @@ function startTimer(time){
             if(time < 0){
                 clearInterval(counter); 
                 timeCount.textContent = "00"
+                
+            console.log("Answer is Incorrect");
             
             let correctAns = questions[que_count].answer;
             let allOptions = option_list.children.length;
@@ -173,6 +184,7 @@ function startTimer(time){
     }
 }
 
+//Blue timer linebar 
 function startTimerLine(time){
     counterLine = setInterval(timer, 29);
     function timer(){
@@ -200,7 +212,7 @@ quit_quiz.onclick = ()=>{
 restart_quiz.onclick = ()=>{
     let que_count = 0;
     let que_numb = 1;
-    let timeValue = 15;
+    let timeValue = 30;
     let widthValue = 0;
     let userScore = 0;
 
@@ -210,8 +222,86 @@ restart_quiz.onclick = ()=>{
     startTimer(timeValue);
     clearInterval(counterLine);
     startTimerLine(widthValue);
+    clearInterval(userScore)
     next_btn.style.display = "none"; //reset
 
     quiz_box.classList.add("activeQuiz"); //hides quiz box
     result_box.classList.remove("activeResult"); //shows result box
 }
+
+
+
+//HIGHSCORE BUTTON Dual Functionality
+let opened = false; // set the nav as closed by default
+function toggleScore() {
+  if(!opened) { // if opened is false (ie nav is closed), open the nav
+    openScore()
+  } else { // else, if opened is ture (ie nav is open), close the nav
+    closeScore();
+  }
+  opened = !opened; // negate boolean to get opposite (t to f, and f to t)
+}
+//Opens high score first click
+function openScore() {
+        highscore_btn.onclick = ()=>{
+
+        //clear ul list
+        document.getElementById("highScoresList").innerHTML = "";
+        //Adds Most recent score
+        document.getElementById("highScoresList").append(`${localStorage.getItem("username")}: ${localStorage.getItem("mostRecentScore")}`)
+        
+        highscore_box.classList.add("activeScore"); //shows highscore box
+    }
+}
+ //Closes high score on second click
+function closeScore() {
+    highscore_btn.onclick = ()=>{
+        highscore_box.classList.remove("activeScore");
+    }
+}
+
+
+
+
+//High score box 
+const play_again = highscore_box.querySelector(".restart"); 
+const quit_highscore = highscore_box.querySelector(".quit");
+
+//Quit Highscore Button
+quit_highscore.onclick = ()=>{
+    window.location.reload();
+}
+
+//Restart Quiz Button
+play_again.onclick = ()=>{
+    let que_count = 0;
+    let que_numb = 1;
+    let timeValue = 30;
+    let widthValue = 0;
+    let userScore = 0;
+    let opened = false;
+
+    clearInterval(opened)
+    showQuestions(que_count);
+    queCounter(que_numb);
+    clearInterval(counter);
+    startTimer(timeValue);
+    clearInterval(counterLine);
+    startTimerLine(widthValue);
+    next_btn.style.display = "none"; //reset
+    
+    console.log(userScore)
+
+    quiz_box.classList.add("activeQuiz"); //shows quiz box
+    highscore_box.classList.remove("activeScore"); //removes Highscore box
+}
+
+
+//Score Board
+const saveBtn = document.querySelector('#saveScoreBtn')
+
+saveBtn.addEventListener("click", function(){
+    const username = document.getElementById("username").value 
+    console.log(username)
+    localStorage.setItem("username", JSON.stringify(username));
+ });

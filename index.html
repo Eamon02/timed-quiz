@@ -12,6 +12,10 @@
     <!-- start Quiz button -->
     <div class="start_btn"><button>Start Quiz</button></div>
 
+    <!-- Highscore Button -->
+    <div class="highscore_btn">
+        <button onclick="toggleScore()">High scores<i class="far fa-star"></i></button>
+    </div>
    <!-- Info Box -->
    <div class="info_box">
     <div class="info-title"><span>Some Rules of this Quiz</span></div>
@@ -73,34 +77,42 @@
         </footer>
     </div>
 
-        <!-- Result Box -->
-    <div class="result_box">
-        <div class="icon">
-            <i class="fas fa-poo"></i>
+            <!-- Result Box -->
+        <div class="result_box">
+            <div class="icon">
+                <i class="fas fa-poo"></i>
+            </div>
+            <div class="complete_text">You've Completed the Quiz!</div>
+            <form action="" class="score_board">
+                <input type="text" name="name" id="username" placeholder="Enter your name">
+                <button class="btn" id="saveScoreBtn" type="submit">Save Score</button> 
+            </form>
+            <div class="score_text">
+                <!-- <span>Your Score Was: <p>1</p>out of<p>5</p></span>  -->
+            </div>
+            <div class="buttons">
+                <button class="restart">Replay Quiz</button>
+                <button class="quit">Quit Quiz</button>       
+            </div>            
         </div>
-        <div class="complete_text">You've Completed the Quiz!</div>
-        <div class="score_text">
-            <!-- <span>Your Score Was: <p>1</p>out of<p>5</p></span>  -->
-        </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>       
-         </div>            
-    </div>
 
-    <div class="highscore_box">
-        <div class="icon">
-            <i class="fas fa-trash-restore-alt"></i>
-        </div>
-        <div class="highscore_text">High Scores</div>
-        <form action="" class="score_board">
+        <div class="highscore_box">
+            <div class="icon">
+                <i class="fas fa-trash-restore-alt"></i>
+            </div>
+            <div class="highscore_text">High Scores</div>
             
-        </form>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>       
-         </div>            
-    </div>
+            <div class="coantianer">
+                <div id="highScores">
+                    <ul id="highScoresList"></ul>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="restart">Replay Quiz</button>
+                <button class="quit">Quit Quiz</button>       
+            </div>            
+        </div>
 
     <script src="js/script.js"></script>
     <script src="js/Questions.js"></script>
