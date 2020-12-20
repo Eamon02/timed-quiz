@@ -17,7 +17,7 @@ body{
 .info_box,
 .quiz_box,
 .result_box{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -30,7 +30,7 @@ body{
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
 .result_box.activeResult{
-    width: 540px;
+    /* width: 540px; */
     background: #fff;
     border-radius: 5px;
     pointer-events: auto;
@@ -65,7 +65,7 @@ body{
 
 /* Highscore Button */
 .highscore_btn button{
-    position: absolute;
+    position: fixed;
     top: 8px;
     right: 8px;
     font-size: 15px;
@@ -88,7 +88,7 @@ body{
 
 /* Info Box styling */
 .info_box{ 
-    width: 540px;
+    /* width: 540px; */
     background: #fff;
     border-radius: 5px;
     opacity: 0;
@@ -102,13 +102,13 @@ body{
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
-    padding: 0 35px;
+    padding: 0 1%;
     font-size: 20px;
     font-weight: 600;
 }
 
 .info_box .info-list{
-    padding: 15px 35px;
+    /* padding: 15px 35px; */
 
 }
 .info{
@@ -170,7 +170,7 @@ body{
 }
 
 .quiz_box{
-    width: 550px;
+    /* width: 550px; */
     background: #fff;
     border-radius: 5px;
     opacity: 0;
@@ -179,7 +179,9 @@ body{
 }
 
 .quiz_box header{
+    width: absolute;
     position: relative;
+    overflow: hidden;
     z-index: 99;
     height: 70px;
     padding: 0 30px;
@@ -200,7 +202,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 145px;
+    /* width: 145px; */
     height: 45px;
     background: #cce5ff;
     border: 1px solid #b8daff;
@@ -386,7 +388,7 @@ footer .next_btn:hover{
 /* Result Page */
 .result_box{
     background: #fff;
-    width: 450px;
+    /* width: 450px; */
     padding: 25px 30px;
     border-radius: 5px;
     display: flex;
@@ -455,7 +457,7 @@ footer .next_btn:hover{
   left: 50%;
   transform: translate(-50%, -50%);  
   background: white;
-  width: 450px;
+  /* width: 450px; */
   padding: 25px 30px;
   border-radius: 5px;
   display: flex;
@@ -470,7 +472,7 @@ footer .next_btn:hover{
 
 /* highscore when clicked */
 .highscore_box.activeScore{
-    width: 540px;
+    /* width: 540px; */
     background: #fff;
     border-radius: 5px;
     pointer-events: auto;
