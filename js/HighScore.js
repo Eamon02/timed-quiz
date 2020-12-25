@@ -1,48 +1,57 @@
-// DOM elements and the variables they are tied to
 const username = document.getElementById("username")
 const saveScoreBtn = document.querySelector('#saveScoreBtn')
 const finalScore = document.querySelector('#finalScore')
-const mostRecentScore = localStorage.getItem('mostRecentScore')
+const mostRecentScore = localStorage.getItem('mostRecentScore') || 0
 const highScoresList = document.querySelector('#highScoresList')
 
 
-
+//Gets info from local storage or returns
 const highScores = JSON.parse(localStorage.getItem('highScores')) || []
+
+//max high score list length
 const MAX_HIGH_SCORES = 5
 
-finalScore.innerText = mostRecentScore
-
+//on click of save name, disables when empty 
 username.addEventListener('keyup', () => {
   saveScoreBtn.disabled = !username.value
 })
 
 console.log(username.value)
 
-// Save high score function
+//saves score 
 saveHighScore = e => {
   e.preventDefault()
 
-  // Score saved to high scores list is made up of the most recent score, and the user's initials
+//puts elements onto array element 
   const score = {
     score: mostRecentScore,
     name: username.value
   }
 
-  // The five highest score games are saved on the page
   highScores.push(score)
 
+  //sprts scores list
+  console.log(highScores, "unsorted")
   highScores.sort((a,b) => {
     return b.score - a.score
   })
 
+  console.log(highScores, "sorted")
+
   highScores.splice(5)
 
-  // After the score is saved to local storage (after the save button is clicked), the page redirects to home
   localStorage.setItem('highScores', JSON.stringify(highScores))
   window.location.assign('index.html')
 }
 
-// plugging in High Scores
+console.log(highScores, "unsorted")
+highScores.sort((a,b) => {
+  return b.score - a.score
+})
+
+console.log(highScores, "sorted")
+
+
 highScoresList.innerHTML =
 highScores.map(score => {
   return `<li class"high-score">${score.name} - ${score.score}</li>`

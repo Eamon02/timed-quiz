@@ -17,12 +17,14 @@ const highscore_box = document.querySelector(".highscore_box")
 //Start Button click
 start_btn.onclick = () => {
     info_box.classList.add("activeInfo"); //shows info box
+    localStorage.setItem("mostRecentScore", "0")
 }
 
 
 //Exit Button Click
 exit_btn.onclick = () => {
     info_box.classList.remove("activeInfo"); //hides info box
+    localStorage.setItem("mostRecentScore", "0")
 }
 
 //Continue Button Click
@@ -33,6 +35,7 @@ continue_btn.onclick = () => {
     queCounter(1);
     startTimer(15);
     startTimerLine(0);
+    localStorage.setItem("mostRecentScore", "0")
 }
 
 let que_count = 0;
@@ -127,6 +130,7 @@ function optionSelected(answer) {
         console.log(userScore);
 
         answer.classList.add("correct"); //if right answer selected, changes css
+        // answer.setAttribute("disabled");
         console.log("Answer is Correct");
     } else {
 
@@ -144,6 +148,8 @@ function optionSelected(answer) {
     for (let i = 0; i < allOptions; i++) {
         if (option_list.children[i].textContent == correctAns) {
             option_list.children[i].setAttribute("class", "option correct");
+            option_list.children[i].setAttribute("disabled");
+
             option_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
         }
     }
